@@ -40,7 +40,10 @@ export default function ApplicantPortal() {
       if (rpcError) throw rpcError;
       setRows((data || []) as ApplicantRow[]);
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not load your applications. Please try again.');
+      const detail = e instanceof Error ? e.message : '';
+      setError(/my_application_status|schema cache|could not find the function/i.test(detail)
+        ? 'The applicant portal is waiting for its database setup to be completed. Please check back soon or contact the organisers.'
+        : detail || 'Could not load your applications. Please try again.');
     } finally {
       setLoading(false);
     }
