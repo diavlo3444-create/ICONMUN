@@ -1,10 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import type { Session } from '@supabase/supabase-js';
 import {
-  CalendarDays, ClipboardList, DoorOpen, History, Inbox, Landmark, LayoutDashboard, Loader2, LogOut, Menu, Settings, ShieldAlert, Users, X, ExternalLink,
+  CalendarDays, ClipboardList, DoorOpen, History, Inbox, Landmark, LayoutDashboard, Loader2, LogOut, Menu, QrCode, Settings, ShieldAlert, Users, X, ExternalLink,
 } from 'lucide-react';
 import { getSupabase, isSupabaseConfigured } from '../lib/supabase';
 import { ApplicationsManager } from './ApplicationsManager';
+import { CheckInManager } from './CheckInManager';
 import { AuditLog } from './AuditLog';
 import { ContentManager } from './ContentManager';
 import { Dashboard } from './Dashboard';
@@ -27,6 +28,7 @@ const NAV: Array<{ group: string; items: Array<{ route: string; label: string; i
       { route: 'settings', label: 'Site settings', icon: Settings },
     ],
   },
+  { group: 'Event operations', items: [{ route: 'check-in', label: 'QR check-in', icon: QrCode }] },
   { group: 'Security', items: [{ route: 'activity', label: 'Activity log', icon: History }] },
 ];
 
@@ -219,6 +221,7 @@ const AdminInner: React.FC = () => {
   else if (route === 'registrations') page = <RegistrationManager go={go} />;
   else if (route === 'settings') page = <SettingsManager />;
   else if (route === 'activity') page = <AuditLog />;
+  else if (route === 'check-in') page = <CheckInManager />;
   else if (['committees', 'schedule_days', 'schedule_events', 'secretariat'].includes(route)) page = <ContentManager key={route} resourceKey={route} />;
   else page = <Dashboard go={go} />;
 
