@@ -69,7 +69,7 @@ export const CheckInManager: React.FC = () => {
           <div className="flex items-center gap-3"><span className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#E8CBA4]/25 bg-[#E8CBA4]/10 text-[#E8CBA4]"><ScanLine /></span><div><h2 className="font-cinzel text-lg text-[#FFF3D6]">Scan a digital pass</h2><p className="mt-1 text-sm text-[#A89D8A]">Use a phone camera or a scanner keyboard.</p></div></div>
           <div id="icon-checkin-reader" className="mt-5 min-h-8 overflow-hidden rounded-xl bg-black/30" />
           <div className="mt-4 flex flex-wrap gap-2">
-            {!cameraOn ? <Button onClick={() => void startCamera()}><Camera className="h-4 w-4" /> Start camera</Button> : <Button variant="secondary" onClick={() => void stopCamera()}>Stop camera</Button>}
+            {!cameraOn ? <Button onClick={() => void startCamera()}><Camera className="h-4 w-4" /> Start camera</Button> : <Button variant="subtle" onClick={() => void stopCamera()}>Stop camera</Button>}
           </div>
           <div className="my-6 flex items-center gap-3 text-[10px] uppercase tracking-[.2em] text-[#6F685B]"><span className="h-px flex-1 bg-white/10" />Or enter pass ID<span className="h-px flex-1 bg-white/10" /></div>
           <form onSubmit={e => { e.preventDefault(); void checkIn(); }} className="flex flex-col gap-3 sm:flex-row"><TextInput aria-label="Pass ID" placeholder="Paste pass ID…" value={token} onChange={e => setToken(e.target.value)} /><Button type="submit" loading={busy} disabled={!token.trim()}>Verify & check in</Button></form>
