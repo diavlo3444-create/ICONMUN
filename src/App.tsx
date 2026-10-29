@@ -7,6 +7,7 @@ import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
 import { CommitteesSection } from './components/CommitteesSection';
 import { ScheduleSection } from './components/ScheduleSection';
+import { ConferenceInfoSection } from './components/ConferenceInfoSection';
 import { SecretariatSection } from './components/SecretariatSection';
 import { RegistrationSection } from './components/RegistrationSection';
 import { FooterSection } from './components/FooterSection';
@@ -168,6 +169,7 @@ export default function App() {
         <AboutSection />
         <CommitteesSection onSelectCommitteeForRegister={handleOpenRegister} />
         <ScheduleSection />
+        <ConferenceInfoSection />
         <SecretariatSection />
         <RegistrationSection
           isOpenModal={isRegisterOpen}
