@@ -150,13 +150,17 @@ export const getResource = (key: string) => RESOURCES.find((r) => r.key === key)
 export interface SettingDef {
   key: string;
   label: string;
-  kind: 'text' | 'email' | 'url' | 'toggle';
+  kind: 'text' | 'email' | 'url' | 'toggle' | 'date';
   group: string;
   help?: string;
   placeholder?: string;
 }
 
 export const SETTINGS: SettingDef[] = [
+  { key: 'conference_date', label: 'Conference date', kind: 'date', group: 'Conference information', help: 'Optional. Sets the public countdown when confirmed.' },
+  { key: 'venue_name', label: 'Venue name', kind: 'text', group: 'Conference information', placeholder: 'Venue to be announced' },
+  { key: 'venue_address', label: 'Venue address', kind: 'text', group: 'Conference information', placeholder: 'Full address (optional)' },
+  { key: 'delegate_guide_url', label: 'Delegate guide link', kind: 'url', group: 'Conference information', placeholder: 'https://…', help: 'Optional. Link to the published delegate guide.' },
   { key: 'venue', label: 'Venue & location', kind: 'text', group: 'Contact details', placeholder: 'Riyadh, Saudi Arabia', help: 'Shown in the footer. Leave empty to show "TBA".' },
   { key: 'contact_email', label: 'Contact email', kind: 'email', group: 'Contact details', placeholder: 'secretariat@example.com' },
   { key: 'contact_phone', label: 'Phone / contact', kind: 'text', group: 'Contact details', placeholder: '+966 …' },
