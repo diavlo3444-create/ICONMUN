@@ -116,6 +116,12 @@ export const Navigation: React.FC<NavigationProps> = ({
               Timeline (TBA)
             </a>
             <a
+              href="#conference-info"
+              className="hover:text-accent transition-colors whitespace-nowrap shrink-0 py-2"
+            >
+              Visitor guide
+            </a>
+            <a
               href="#secretariat"
               className="hover:text-accent transition-colors whitespace-nowrap shrink-0 py-2"
             >
@@ -125,6 +131,7 @@ export const Navigation: React.FC<NavigationProps> = ({
 
           {/* Zone 3: Desktop Register CTA + Mobile Hamburger */}
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+            <a href="/portal" className="hidden lg:inline-flex min-h-[44px] items-center px-2 text-[10px] uppercase tracking-[.14em] text-ink2 transition hover:text-accent">Applicant portal</a>
             <button
               type="button"
               onClick={onOpenRegister}
@@ -183,8 +190,9 @@ export const Navigation: React.FC<NavigationProps> = ({
               { id: 'about', label: '01. About (TBA)' },
               { id: 'committees', label: '02. Councils (TBA)' },
               { id: 'schedule', label: '03. Itinerary (TBA)' },
-              { id: 'secretariat', label: '04. High Secretariat' },
-              { id: 'registration', label: '05. Registry (TBA)' },
+              { id: 'conference-info', label: '04. Conference guide & FAQ' },
+              { id: 'secretariat', label: '05. High Secretariat' },
+              { id: 'registration', label: '06. Registry (TBA)' },
             ].map((item) => (
               <a
                 key={item.id}
@@ -210,6 +218,7 @@ export const Navigation: React.FC<NavigationProps> = ({
             >
               Register Interest (TBA)
             </button>
+            <a href="/portal" onClick={() => setIsMobileMenuOpen(false)} className="flex min-h-[48px] w-full items-center justify-center rounded-xl border border-gold/30 text-xs uppercase tracking-[.2em] text-accent transition hover:bg-gold/10">Applicant portal</a>
             <p className="text-center text-[10px] uppercase tracking-[0.25em] text-ink3">
               ICON MUN 2027 · Premier Model UN
             </p>
