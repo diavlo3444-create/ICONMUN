@@ -4,7 +4,9 @@ import './index.css';
 
 // The admin panel is a separate lazy chunk: public visitors never download admin code.
 // (App stays a normal static import so the public site starts with no extra round trip.)
-const isAdminRoute = window.location.pathname.replace(/\/+$/, '').startsWith('/admin');
+const routePath = window.location.pathname.replace(/\/+$/, '');
+const isAdminRoute = routePath.startsWith('/admin');
+const isPortalRoute = routePath === '/portal';
 const root = createRoot(document.getElementById('root')!);
 
 if (isAdminRoute) {
