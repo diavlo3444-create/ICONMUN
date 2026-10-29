@@ -86,11 +86,12 @@ export const Dashboard: React.FC<{ go: (route: string) => void }> = ({ go }) => 
       <PageHeader eyebrow="Overview" title="Dashboard" subtitle="A live look at registrations and your site content." />
       {loading ? <Spinner /> : error ? <ErrorBox message={error} onRetry={load} /> : (
         <div className="space-y-6">
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-5">
             <Stat label="Total applications" value={apps.length} onClick={() => go('applications')} hint={`${weekCount} in the last 7 days`} />
             <Stat label="New · need review" value={byStatus.new || 0} tone="text-sky-300" onClick={() => go('applications?status=new')} />
             <Stat label="Accepted" value={byStatus.accepted || 0} tone="text-emerald-300" onClick={() => go('applications?status=accepted')} />
             <Stat label="Waitlisted" value={byStatus.waitlisted || 0} tone="text-[#F3DFA2]" onClick={() => go('applications?status=waitlisted')} />
+            <Stat label="Rejected" value={byStatus.rejected || 0} tone="text-rose-300" onClick={() => go('applications?status=rejected')} />
           </div>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
