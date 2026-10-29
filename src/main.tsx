@@ -9,6 +9,8 @@ const root = createRoot(document.getElementById('root')!);
 
 if (isAdminRoute) {
   import('./admin/AdminApp').then(({ default: AdminApp }) => root.render(<AdminApp />));
+} else if (isPortalRoute) {
+  import('./components/ApplicantPortal').then(({ default: ApplicantPortal }) => root.render(<ApplicantPortal />));
 } else {
   root.render(<App />);
 }
