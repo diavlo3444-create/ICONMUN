@@ -86,7 +86,7 @@ export const SettingsManager: React.FC = () => {
                     ) : (
                       <>
                         <Label htmlFor={`s-${s.key}`} hint={s.help}>{s.label}</Label>
-                        <TextInput id={`s-${s.key}`} type={s.kind === 'email' ? 'email' : 'text'} inputMode={s.kind === 'url' ? 'url' : undefined} value={values[s.key] || ''} maxLength={1000} placeholder={s.placeholder} onChange={(e) => setValues((v) => ({ ...v, [s.key]: e.target.value }))} />
+                        <TextInput id={`s-${s.key}`} type={s.kind === 'email' ? 'email' : s.kind === 'date' ? 'date' : 'text'} inputMode={s.kind === 'url' ? 'url' : undefined} value={values[s.key] || ''} maxLength={1000} placeholder={s.placeholder} onChange={(e) => setValues((v) => ({ ...v, [s.key]: e.target.value }))} />
                       </>
                     )}
                   </div>
